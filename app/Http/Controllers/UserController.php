@@ -86,6 +86,7 @@ class UserController extends Controller
     {
         try {
             $user->delete();
+            return redirect('users');
         } catch (Exception $th) {
             dd($th);
         }
