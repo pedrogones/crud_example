@@ -28,9 +28,9 @@ class UserRequest extends FormRequest
                 'email'
             ],
             'password'=>[
+                'required',
                 'confirmed'
-            ],
-            'role_id'=>'required',
+            ]
         ];
     }
 
@@ -41,7 +41,8 @@ class UserRequest extends FormRequest
         'name.required'=>'Campo nome é obrigatório!',
         'email.required'=>'Email é obrigatório!',
         'email.email'=>'Formato de email incorreto!',
-        'passwor.confirmed'=>'As senhas diferem'
+        'password.required'=>'A senha é obrigatória!',
+        'password.confirmed'=>'As senhas diferem'
         ];
     }
 }

@@ -43,7 +43,7 @@ class UserController extends Controller
             'role_id'=>'required',
         ];
     }
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         try {
             $data = $request->all();
@@ -68,15 +68,22 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::find($id);
+         return view('users.update', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        try {
+            $data = $request->all();
+            $user->update($data);
+            return redirect('users');
+        } catch (Exception $e) {
+            dd($e);
+        }
     }
 
     /**
